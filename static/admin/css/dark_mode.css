@@ -2,6 +2,7 @@
     :root {
       /* --primary: #264b5d; */
       --primary: #74b9ff;
+      /* --primary: red; */
       /* --primary: #48dbfb; */
       --primary-fg: #f7f7f7;
   
@@ -41,6 +42,7 @@ html[data-theme="dark"] {
     /* --primary: #264b5d; */
     /* --primary: #74b9ff; */
     --primary: #4b6584;
+    /* --primary: red; */
     --primary-fg: #f7f7f7;
 
     --body-fg: #eeeeee;

@@ -9,7 +9,8 @@ html[data-theme="light"],
     --primary: #74b9ff;
     /* --primary: #636e72; */
     /* --secondary: #417690; */
-    --secondary: #0984e3;
+    /* --secondary: #0984e3; */
+    --secondary: red;
     --accent: #f5dd5d;
     --primary-fg: #fff;
 
