@@ -1,0 +1,10 @@
+<!-- templates/leeon_zns/template_list.html -->
+{% if customer_list %}
+    <ul>
+        {% for cus in customer_list %}
+        <li><a href="{% url 'cus:tem_detail' cus.id %}">{{ cus.id }}</a></li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No customer are available</p>
+{% endif %}

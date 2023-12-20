@@ -1,0 +1,10 @@
+<!-- templates/transaction_log_zns/transaction_log_list.html -->
+{% if transaction_log_list %}
+    <ul>
+        {% for transaction_log_zns in transaction_log_list %}
+        <li><a href="{% url 'transaction_log_zns:transaction_log_detail' transaction_log_zns.id %}">{{ transaction_log_zns.id }}</a></li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No transaction_log are available</p>
+{% endif %}

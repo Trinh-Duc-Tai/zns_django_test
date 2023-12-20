@@ -1,0 +1,12 @@
+<!-- templates/transaction_log_zns/template_list.html -->
+{% if templates %}
+    <ul>
+        {% for tem in templates %}
+        <li><a href="{% url 'tem:tem_detail' tem.id %}">{{ tem.id }}</a></li>
+        {% comment %} <li>{{ tem }}</li> {% endcomment %}
+        {% comment %} <li><a href="{% url 'tem:transaction_log_detail' tem.id %}">{{ tem.id }}</a></li> {% endcomment %}
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No tem are available</p>
+{% endif %}
