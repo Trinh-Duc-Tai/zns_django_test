@@ -23,6 +23,7 @@ class TransactionLogZN(models.Model):
     class Meta:
         managed = False
         db_table = "transaction_log"
+        verbose_name_plural = 'Log giao dịch'
 
     def __str__(self):
         return f"Transaction {self.id}"
@@ -38,13 +39,18 @@ class Template(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     SearchableFields = ["template_name","template_code", "type", "price","customer_id", "created_at","updated_at"]
-    DisplayFields = ["template_name", "template_code" ,"type", "price","customer_id", "created_at","updated_at"]
+    # DisplayFields = ["template_name", "template_code" ,"type", "price","customer_id", "created_at","updated_at"]
+    DisplayFields = ["template_name", "template_code" ,"type", "price", "created_at"]
 
     class Meta:
         managed = False  # Không quản lý cơ sở dữ liệu
         db_table = 'template'  # Tên bảng trong cơ sở dữ liệu
+        verbose_name_plural = 'Các mẫu gửi tin'
+        
+        # verbose_name = 'Các mẫu'
     def __str__(self):
         return self.template_name +"  |  type: " + str(self.type)
+
 
 class Customer(models.Model):
     id = models.AutoField(primary_key=True)
@@ -59,10 +65,12 @@ class Customer(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     SearchableFields = ["customer_name","phone_number", "address", "balance_limit","balance_current", "ip_limit","token"]
-    DisplayFields = ['customer_name', 'balance_limit', 'balance_current', 'ip_limit', 'token', 'updated_at', 'created_at', 'email', 'phone_number', 'address']
+    # DisplayFields = ['customer_name', 'balance_limit', 'balance_current', 'ip_limit', 'token', 'updated_at', 'created_at', 'email', 'phone_number', 'address']
+    DisplayFields = ['customer_name', 'balance_limit', 'balance_current', 'ip_limit', 'token', 'email', 'phone_number', 'created_at']
     class Meta:
         managed = False
         db_table = 'customer'
+        verbose_name_plural = 'Danh sách khách hàng'
 
     def __str__(self):
         return self.customer_name + "   |   "  + self.ip_limit+ "   |  Limit: " + str(self.balance_limit)+ "   |  Current: " + str(self.balance_current)

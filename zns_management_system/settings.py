@@ -36,13 +36,14 @@ ALLOWED_HOSTS = [
 
 INSTALLED_APPS = [
     # "transaction_log_zns",
-    "leeon_zns",
     'django.contrib.admin',
+    "leeon_zns",
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'fontawesomefree',
 ]
 
 MIDDLEWARE = [
@@ -152,3 +153,4 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 print("base", BASE_DIR)
 STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
