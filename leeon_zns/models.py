@@ -1,16 +1,16 @@
 from django.db import models
 
 class TransactionLogZN(models.Model):
-    id = models.AutoField(primary_key=True)
+    id = models.AutoField(primary_key=True,verbose_name='STT')
     customer_id = models.IntegerField()
     content = models.TextField()
-    template_code = models.CharField(max_length=11)
-    template_type = models.SmallIntegerField()
-    price = models.CharField(max_length=50)
-    phone_number = models.CharField(max_length=15)
+    template_code = models.CharField(max_length=11,verbose_name='Mã mẫu tin')
+    template_type = models.SmallIntegerField(verbose_name='Loại mẫu tin')
+    price = models.CharField(max_length=50,verbose_name='Giá')
+    phone_number = models.CharField(max_length=15,verbose_name='Số điện thoại')
     response_msg_id = models.CharField(max_length=100)
     response_error = models.CharField(max_length=10)
-    response_message = models.CharField(max_length=50)
+    response_message = models.CharField(max_length=50,verbose_name='Tin nhắn phản hồi')
     zalo_sent_time = models.DateTimeField()
     remaining_quota = models.CharField(max_length=50)
     daily_quota = models.CharField(max_length=50)
@@ -19,6 +19,7 @@ class TransactionLogZN(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     SearchableFields = ["customer_id", "template_code", "phone_number","created_at", "template_type"]
     FilterableFields = ["customer_id", "template_code", "phone_number", "template_type"]
+    
 
     class Meta:
         managed = False
@@ -29,12 +30,12 @@ class TransactionLogZN(models.Model):
         return f"Transaction {self.id}"
     
 class Template(models.Model):
-    id = models.AutoField(primary_key=True)
-    template_name = models.TextField()
-    template_code = models.CharField(max_length=11)
+    id = models.AutoField(primary_key=True,verbose_name='STT')
+    template_name = models.TextField(verbose_name='Tên mẫu tin')
+    template_code = models.CharField(max_length=11,verbose_name='Mã mẫu tin')
     content = models.TextField()
-    type = models.SmallIntegerField()
-    price = models.CharField(max_length=50)
+    type = models.SmallIntegerField(verbose_name='Loại mẫu tin')
+    price = models.CharField(max_length=50,verbose_name='Giá')
     customer_id = models.IntegerField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -53,17 +54,18 @@ class Template(models.Model):
 
 
 class Customer(models.Model):
-    id = models.AutoField(primary_key=True)
-    customer_name = models.CharField(max_length=100)
+    id = models.AutoField(primary_key=True,verbose_name='STT')
+    customer_name = models.CharField(max_length=100,verbose_name='Tên khách hàng')
     email = models.CharField(max_length=100)
-    phone_number = models.CharField(max_length=50)
+    phone_number = models.CharField(max_length=50,verbose_name='Số điện thoại')
     address = models.CharField(max_length=256)
-    balance_limit = models.BigIntegerField()
-    balance_current = models.BigIntegerField()
-    ip_limit = models.CharField(max_length=50)
+    balance_limit = models.BigIntegerField(verbose_name='Hạn mức số dư')
+    balance_current = models.BigIntegerField(verbose_name='Hạn mức hiện tại')
+    ip_limit = models.CharField(max_length=50,verbose_name='Hạn mức IP')
     token = models.CharField(max_length=100)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+
     SearchableFields = ["customer_name","phone_number", "address", "balance_limit","balance_current", "ip_limit","token"]
     # DisplayFields = ['customer_name', 'balance_limit', 'balance_current', 'ip_limit', 'token', 'updated_at', 'created_at', 'email', 'phone_number', 'address']
     DisplayFields = ['customer_name', 'balance_limit', 'balance_current', 'ip_limit', 'token', 'email', 'phone_number', 'created_at']

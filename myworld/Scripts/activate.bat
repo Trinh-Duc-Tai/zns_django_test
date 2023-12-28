@@ -8,7 +8,7 @@ if defined _OLD_CODEPAGE (
     "%SystemRoot%\System32\chcp.com" 65001 > nul
 )
 
-set VIRTUAL_ENV=D:\API_Flask\zalo_demo\site_dijango\zns_management_system\myworld
+set VIRTUAL_ENV=D:\API_Flask\zalo_demo\site_dijango\v2\zns_management_system\myworld
 
 if not defined PROMPT set PROMPT=$P$G
 
